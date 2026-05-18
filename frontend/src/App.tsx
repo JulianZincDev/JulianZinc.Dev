@@ -9,7 +9,6 @@ import { ThemeProvider } from 'styled-components';
 import { useMemo, useState } from 'react';
 import { defaultTheme } from './themes/defaultTheme';
 
-
 const themeMap = {
   default: defaultTheme,
 }

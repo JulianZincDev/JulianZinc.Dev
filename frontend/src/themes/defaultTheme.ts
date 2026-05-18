@@ -1,6 +1,12 @@
 import { ButtonVariant } from "@/components/Button/Button.types";
 
 export const defaultTheme = {
+  banner: {
+    background: '#7ca8e2',
+  },
+  menubar: {
+    background: '#fcfcfc',
+  },
   button: {
     variants: {
       [ButtonVariant.Neutral]: {
@@ -19,6 +25,14 @@ export const defaultTheme = {
         borderLight: '#585858',
         borderDark: '#585858',
       },
+      [ButtonVariant.MenuButton]: {
+        textLight: 'black',
+        textDark: 'black',
+        backgroundLight: 'transparent',
+        backgroundDark: 'darkgrey',
+        borderLight: 'gray',
+        borderDark: 'transparent',
+      }
     }
   }
 };
