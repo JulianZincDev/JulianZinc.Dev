@@ -1,6 +1,8 @@
 import { ButtonVariant } from "@/components/Button/Button.types";
 
 export const defaultTheme = {
+  black: 'black',
+  white: 'white',
   banner: {
     background: '#7ca8e2',
   },

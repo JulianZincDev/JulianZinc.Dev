@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ButtonVariant } from "../Button/Button.types";
-import { StyledMenubarBehindArea, StyledMenubarButton, StyledMenubarContainer } from "./Menubar.styles";
+import { StyledLogo, StyledMenubarBehindArea, StyledMenubarButton, StyledMenubarContainer, StyledSideZone } from "./Menubar.styles";
 
 export const MenuBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,9 +21,13 @@ export const MenuBar = () => {
     <>
       <StyledMenubarBehindArea />
       <StyledMenubarContainer $isScrolled={isScrolled}>
+        <StyledSideZone>
+          <StyledLogo>JulianZinc.Dev</StyledLogo>
+        </StyledSideZone>
         <StyledMenubarButton label={'Home'} variant={ButtonVariant.MenuButton} />
         <StyledMenubarButton label={'Projects'} variant={ButtonVariant.MenuButton} />
         <StyledMenubarButton label={'Contact'} variant={ButtonVariant.MenuButton} />
+        <StyledSideZone />
       </StyledMenubarContainer>
     </>
   )
