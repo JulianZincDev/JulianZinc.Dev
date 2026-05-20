@@ -11,10 +11,14 @@ export const StyledMenubarContainer = styled.nav<StyledMenubarContainerProps>`
   justify-content: center;
   height: 42px;
   box-sizing: border-box;
-  position: sticky;
-  column-gap: 10px;
+  position: fixed;
+  column-gap: min(0.5%, 10px);
   top: 0;
   margin: auto;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  overflow: hidden;
   
   background-color: ${({ theme }) => theme.menubar.background};
 

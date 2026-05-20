@@ -1,14 +1,14 @@
 import { useEffect, useRef } from "react";
+import { Eye } from "./Eye";
 
 
 export const CursorBlob = () => {
-  const size = '50%';
+  const size = '100%';
   const radius = 50;
   const pointCount = 100;
 
   const target = useRef({ x: 0, y: 0 });
   const current = useRef({ x: 0, y: 0 });
-
 
   const raf = useRef<number>(null);
 
@@ -19,6 +19,9 @@ export const CursorBlob = () => {
   const rightEyeRef = useRef<SVGCircleElement>(null);
   const leftPupilRef = useRef<SVGCircleElement>(null);
   const rightPupilRef = useRef<SVGCircleElement>(null);
+
+
+  const scrollOffsetGroupRef = useRef<SVGGElement>(null);
 
   /**
    * Takes the unit direction vector from the blob center to the cursor
@@ -97,6 +100,15 @@ export const CursorBlob = () => {
   const rightEye = { x: 15, y: -10 };
 
   const draw = () => {
+
+    const rect = svgRef.current?.getBoundingClientRect();
+    if (rect) {
+      const screenOffsetY = Math.max(0, -(rect.top + rect.height / 1.5));
+      const svgUnitsPerPx = 240 / rect.height;
+      const offset = screenOffsetY * svgUnitsPerPx;
+      scrollOffsetGroupRef.current?.setAttribute('transform', `translate(0 ${offset})`)
+    }
+
     current.current.x += (target.current.x - current.current.x) * 0.05;
     current.current.y += (target.current.y - current.current.y) * 0.05;
 
@@ -155,7 +167,7 @@ export const CursorBlob = () => {
   useEffect(() => {
     const handlePointerMove = (e: PointerEvent) => {
       if (!svgRef.current) return;
-      const rect = svgRef.current?.getBoundingClientRect();
+      const rect = svgRef.current.getBoundingClientRect();
       const centerX = rect.left + (rect.width / 2);
       const centerY = rect.top + (rect.height / 2);
 
@@ -188,19 +200,20 @@ export const CursorBlob = () => {
       width={size}
       height={size}
       viewBox="-120 -120 240 240"
+      style={{ overflow: 'visible', zIndex: '1' }}
     >
-      <path
-        ref={pathRef}
-        fill="#FF0066"
-        stroke="#72022f"
-        strokeWidth="2"
-      />
-
-      <circle ref={leftEyeRef} r={'8px'} cx={leftEye.x} cy={leftEye.y} fill="white" />
-      <circle ref={leftPupilRef} r={'2px'} cx={leftEye.x} cy={leftEye.y} fill="black" />
-
-      <circle ref={rightEyeRef} r={'8px'} cx={rightEye.x} cy={rightEye.y} fill="white" />
-      <circle ref={rightPupilRef} r={'2px'} cx={rightEye.x} cy={rightEye.y} fill="black" />
+      <g ref={scrollOffsetGroupRef} >
+        <path
+          ref={pathRef}
+          fill="#FF0066"
+          stroke="#72022f"
+          strokeWidth="2"
+        />
+        {/* <circle ref={leftEyeRef} r={'8px'} cx={leftEye.x} cy={leftEye.y} fill="white" />
+        <circle ref={leftPupilRef} r={'2px'} cx={leftEye.x} cy={leftEye.y} fill="black" /> */}
+        <Eye eyePos={leftEye} />
+        <Eye eyePos={rightEye} />
+      </g>
 
     </svg>
   )

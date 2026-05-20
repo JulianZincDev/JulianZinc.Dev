@@ -1,7 +1,7 @@
 import { Background } from "@/components/Background/Background"
 import { MenuBar } from "@/components/Menubar/Menubar"
 import { useTheme } from "styled-components"
-import { StyledBannerContainer, StyledBannerIntroSection } from "./Landing.styles";
+import { StyledBannerContainer, StyledBannerH1, StyledBannerH2, StyledBannerIntroSection, StyledBannerP, StyledBlobContainer } from "./Landing.styles";
 import { CursorBlob } from "./CursorBlob/CursorBlob";
 
 
@@ -13,11 +13,14 @@ export const Landing = () => {
       <MenuBar />
       <StyledBannerContainer>
         <StyledBannerIntroSection>
-          <h2>Julian Zincone</h2>
-          <h1 style={{ marginTop: '20px' }}>Full-Stack Developer</h1>
-          <p style={{ opacity: '60%' }}>Fullstack software developer with experience building modern web apps with React, Typescript, and backend APIs</p>
+          <StyledBannerH2>Julian Zincone</StyledBannerH2>
+          <StyledBannerH1 style={{ marginTop: '5px' }} >Full-Stack Developer</StyledBannerH1>
+          <StyledBannerP style={{ opacity: '60%' }}>Fullstack software developer with experience building modern web apps with React, Typescript, and backend APIs</StyledBannerP>
         </StyledBannerIntroSection>
-        <CursorBlob />
+        
+        <StyledBlobContainer>
+          <CursorBlob />
+        </StyledBlobContainer>
 
       </StyledBannerContainer>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
