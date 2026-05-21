@@ -56,6 +56,14 @@ export const defaultTheme = {
         borderLight: 'black',
         borderDark: 'black',
       },
+      [ButtonVariant.TechElement]: {
+        textLight: 'black',
+        textDark: 'black',
+        backgroundLight: '#f0f0f0',
+        backgroundDark: '#cccccc',
+        borderLight: 'black',
+        borderDark: 'black',
+      },
     }
   }
 };

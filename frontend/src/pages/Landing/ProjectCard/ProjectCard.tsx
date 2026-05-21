@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useRef, type FC, type ReactNode } from "react"
+import { useEffect, useRef, type FC, type ReactNode } from "react"
 import { StyledDescription, StyledFeatureList, StyledFeatureListItem, StyledLinkButton, StyledLinksContainer, StyledMainProjectCardContent, StyledPreviewVideo, StyledProjectCardContainer, StyledProjectOverviewContainer, StyledProjectTitle, StyledSubheading, StyledTechStackContainer } from "./ProjectCard.styles"
 import type { TechElement } from "@/types/TechElement";
 import { TechStackElement } from "./TechStackElement/TechStackElement";
 import { FiExternalLink } from "react-icons/fi";
 import { ButtonVariant } from "@/components/Button/Button.types";
-import type { ClickEvent } from "@/types";
 
 interface ProjectCardProps {
   src?: string;
@@ -44,11 +43,6 @@ export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, desc
 
   }, []);
 
-  const handleClickLink = useCallback((url: string) => (e: ClickEvent) => {
-    e.preventDefault();
-    window.open(url, "_blank", "noopener,noreferrer");
-  }, []);
-
   return (
     <StyledProjectCardContainer>
       <StyledMainProjectCardContent>
@@ -75,14 +69,26 @@ export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, desc
           
           <StyledLinksContainer>
             {linkList?.map((link) =>
-              <StyledLinkButton onClick={handleClickLink(link.url)} variant={ButtonVariant.LinkButton} label={<>{link.label}<FiExternalLink /></>} />
+              <StyledLinkButton
+                variant={ButtonVariant.LinkButton}
+                label={<>{link.label}<FiExternalLink /></>}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              />
             )}
           </StyledLinksContainer>
 
         </StyledProjectOverviewContainer>
       </StyledMainProjectCardContent>
       <StyledTechStackContainer>
-        {techStackList?.map((techElement) => <TechStackElement techElement={techElement} />)}
+        {techStackList?.map((techElement) =>
+        <TechStackElement
+          techElement={techElement}
+          href={techElement.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        />)}
       </StyledTechStackContainer>
     </StyledProjectCardContainer>
   )

@@ -1,20 +1,22 @@
 import type { FC } from "react";
-import { StyledTechElementContainer, StyledTechLogoContainer, StyledTechLogoImg } from "./TechStackElement.styles";
+import { StyledTechElementButton, StyledTechLogoContainer, StyledTechLogoImg } from "./TechStackElement.styles";
 import type { TechElement } from "@/types/TechElement";
+import { ButtonVariant } from "@/components/Button/Button.types";
+import type { AnchorAttributes } from "@/types";
 
-interface TechStackElementProps {
+interface TechStackElementProps extends AnchorAttributes {
   techElement: TechElement;
 }
 
-export const TechStackElement: FC<TechStackElementProps> = ({ techElement }) => {
+export const TechStackElement: FC<TechStackElementProps> = ({ techElement, ...props }) => {
   return (
-    <StyledTechElementContainer>
+    <StyledTechElementButton variant={ButtonVariant.TechElement} {...props}>
       <StyledTechLogoContainer>
         <StyledTechLogoImg src={techElement.logo} />
       </StyledTechLogoContainer>
       <span>
         {techElement.name}
       </span>
-    </StyledTechElementContainer>
+    </StyledTechElementButton>
   )
 }

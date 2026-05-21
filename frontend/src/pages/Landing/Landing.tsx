@@ -53,11 +53,11 @@ export const Landing = () => {
             { label: 'Interactive Demo', url: 'https://teamup-demo.julianzinc.dev' }
           ]}
           techStackList={[
-            { logo: '/react-logo.webp', name: 'React' },
-            { logo: '/typescript-logo.svg', name: 'TypeScript' },
-            { logo: '/nodejs-logo.svg', name: 'Node.js' },
-            { logo: '/postgresql-logo.png', name: 'PostgreSQL' },
-            { logo: '/docker-logo.svg', name: 'Docker' },
+            { logo: '/react-logo.webp', name: 'React', url: 'https://react.dev/' },
+            { logo: '/typescript-logo.svg', name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
+            { logo: '/nodejs-logo.svg', name: 'Node.js', url: 'https://nodejs.org/en' },
+            { logo: '/postgresql-logo.png', name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+            { logo: '/docker-logo.svg', name: 'Docker', url: 'https://www.docker.com/' },
           ]}
         />
 
@@ -81,14 +81,14 @@ export const Landing = () => {
             { label: 'Interactive Demo', url: 'https://tcg-battle-sim.julianzinc.dev' }
           ]}
           techStackList={[
-            { logo: '/react-logo.webp', name: 'React' },
-            { logo: '/typescript-logo.svg', name: 'TypeScript' },
-            { logo: '/nodejs-logo.svg', name: 'Node.js' },
-            { logo: '/graphql-logo.svg', name: 'GraphQL' },
-            { logo: '/prisma-logo.svg', name: 'Prisma' },
-            { logo: '/socket-io-logo.svg', name: 'Socket.IO' },
-            { logo: '/postgresql-logo.png', name: 'PostgreSQL' },
-            { logo: '/docker-logo.svg', name: 'Docker' },
+            { logo: '/react-logo.webp', name: 'React', url: 'https://react.dev/' },
+            { logo: '/typescript-logo.svg', name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
+            { logo: '/nodejs-logo.svg', name: 'Node.js', url: 'https://nodejs.org/en' },
+            { logo: '/graphql-logo.svg', name: 'GraphQL', url: 'https://graphql.org/' },
+            { logo: '/prisma-logo.svg', name: 'Prisma', url: 'https://www.prisma.io/' },
+            { logo: '/socket-io-logo.svg', name: 'Socket.IO', url: 'https://socket.io/' },
+            { logo: '/postgresql-logo.png', name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+            { logo: '/docker-logo.svg', name: 'Docker', url: 'https://www.docker.com/' },
           ]}
         />
 

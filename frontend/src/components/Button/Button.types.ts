@@ -4,4 +4,5 @@ export const enum ButtonVariant {
   Disabled,
   MenuButton,
   LinkButton,
+  TechElement,
 };
