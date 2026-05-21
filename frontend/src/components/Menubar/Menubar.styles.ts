@@ -3,6 +3,7 @@ import { Button } from "../Button/Button";
 
 interface StyledMenubarContainerProps {
   $isScrolled?: boolean;
+  $isVisible?: boolean;
 }
 
 export const StyledMenubarContainer = styled.nav<StyledMenubarContainerProps>`
@@ -38,8 +39,12 @@ export const StyledMenubarContainer = styled.nav<StyledMenubarContainerProps>`
     border-radius: 20px;
     border: 1px solid black;
     opacity: 80%;
-    transform: translateY(15px);
-  `}
+    transform: translateY(10px);
+  `};
+
+  ${({ $isVisible }) => !$isVisible && css`
+    transform: translateY(-42px);
+  `};
 `;
 
 export const StyledMenubarBehindArea = styled.div`

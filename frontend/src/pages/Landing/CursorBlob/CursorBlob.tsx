@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Eye } from "./Eye";
+import { useTheme } from "styled-components";
 
 
 export const CursorBlob = () => {
@@ -194,6 +195,8 @@ export const CursorBlob = () => {
 
   }, []);
 
+  const theme = useTheme();
+
   return (
     <svg
       ref={svgRef}
@@ -205,8 +208,8 @@ export const CursorBlob = () => {
       <g ref={scrollOffsetGroupRef} >
         <path
           ref={pathRef}
-          fill="#FF0066"
-          stroke="#72022f"
+          fill={theme.cursorBlob.fill}
+          stroke={theme.cursorBlob.stroke}
           strokeWidth="2"
         />
         {/* <circle ref={leftEyeRef} r={'8px'} cx={leftEye.x} cy={leftEye.y} fill="white" />

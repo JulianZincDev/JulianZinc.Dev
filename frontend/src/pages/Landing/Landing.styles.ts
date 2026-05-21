@@ -36,3 +36,18 @@ export const StyledBannerH2 = styled.h2`
 export const StyledBannerP = styled.p`
   font-size: clamp(0.75em, 4cqi, 1em);
 `;
+
+export const StyledProjectsSection = styled.div`
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 0 auto;
+  gap: 20px;
+`;
+
+export const StyledSectionHeader = styled.h1`
+  width: 100%;
+  text-align: left;
+`;

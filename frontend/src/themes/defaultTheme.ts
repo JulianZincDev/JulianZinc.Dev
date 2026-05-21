@@ -1,6 +1,10 @@
 import { ButtonVariant } from "@/components/Button/Button.types";
 
 export const defaultTheme = {
+  cursorBlob: {
+    fill: '#FF0066',
+    stroke: '#72022f',
+  },
   black: 'black',
   white: 'white',
   banner: {
@@ -8,6 +12,10 @@ export const defaultTheme = {
   },
   menubar: {
     background: '#fcfcfc',
+  },
+  projectCard: {
+    background: '#fcfcfc',
+    border: 'black',
   },
   button: {
     variants: {
