@@ -17,6 +17,11 @@ export const defaultTheme = {
     background: '#fcfcfc',
     border: 'black',
   },
+  techStack: {
+    techElement: {
+      background: '#f0f0f0',
+    },
+  },
   button: {
     variants: {
       [ButtonVariant.Neutral]: {

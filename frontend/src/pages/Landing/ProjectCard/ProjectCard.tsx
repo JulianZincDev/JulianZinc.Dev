@@ -1,16 +1,18 @@
-import { useEffect, useRef, type FC } from "react"
-import { StyledPreviewVideo, StyledProjectCardContainer } from "./ProjectCard.styles"
+import { useEffect, useRef, type FC, type ReactNode } from "react"
+import { StyledDescription, StyledFeatureList, StyledFeatureListItem, StyledMainProjectCardContent, StyledPreviewVideo, StyledProjectCardContainer, StyledProjectOverviewContainer, StyledProjectTitle, StyledSubheading, StyledTechStackContainer } from "./ProjectCard.styles"
+import type { TechElement } from "@/types/TechElement";
+import { TechStackElement } from "./TechStackElement/TechStackElement";
 
 interface ProjectCardProps {
   src?: string;
-  title?: string;
+  title?: ReactNode;
   subheading?: string;
   description?: string;
   featureList?: string[];
-  techStack?: string[];
+  techStackList?: TechElement[];
 };
 
-export const ProjectCard: FC<ProjectCardProps> = ({ src }) => {
+export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, description, featureList, techStackList }) => {
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -41,14 +43,32 @@ export const ProjectCard: FC<ProjectCardProps> = ({ src }) => {
 
   return (
     <StyledProjectCardContainer>
-      <StyledPreviewVideo
-        ref={videoRef}
-        muted
-        loop
-        playsInline
-      >
-        <source src={src} />
-      </StyledPreviewVideo>
+      <StyledMainProjectCardContent>
+        <StyledPreviewVideo
+          ref={videoRef}
+          muted
+          loop
+          playsInline
+        >
+          <source src={src} />
+        </StyledPreviewVideo>
+
+        <StyledProjectOverviewContainer>
+          <StyledProjectTitle>{title}</StyledProjectTitle>
+          <StyledSubheading>{subheading}</StyledSubheading>
+          <StyledDescription>{description}</StyledDescription>
+          <StyledFeatureList>
+            {featureList?.map((feature) =>
+              <StyledFeatureListItem>
+                {feature}
+              </StyledFeatureListItem>
+            )}
+          </StyledFeatureList>
+        </StyledProjectOverviewContainer>
+      </StyledMainProjectCardContent>
+      <StyledTechStackContainer>
+        {techStackList?.map((techElement) => <TechStackElement techElement={techElement} />)}
+      </StyledTechStackContainer>
     </StyledProjectCardContainer>
   )
 }

@@ -31,7 +31,32 @@ export const Landing = () => {
       
       <StyledProjectsSection>
         <StyledSectionHeader>Projects</StyledSectionHeader>
-        <ProjectCard src="/teamup_silent_demo.mp4" />
+        <ProjectCard
+          src="/teamup_silent_demo.mp4"
+          title={
+            <>
+              <span style={{ color: '#4a82c3' }}>Team</span>
+              <span style={{ color: '#b12a1c' }}>U</span>
+              <span style={{ color: '#feba12' }}>P</span>
+            </>
+          }
+          subheading="University Capstone - Later continued under contract"
+          description="A web platform for students to register, and for staff to manage competitive programming competitions."
+          featureList={[
+            'Virtualized rendering of 1000+ entries',
+            'Automatic Team matching system',
+            'Streamlined user signup process',
+            'Robust role-based administrative controls',
+            'Extensible table architecture',
+          ]}
+          techStackList={[
+            { logo: '/react-logo.webp', name: 'React' },
+            { logo: '/typescript-logo.svg', name: 'TypeScript' },
+            { logo: '/nodejs-logo.svg', name: 'Node.js' },
+            { logo: '/postgresql-logo.png', name: 'PostgreSQL' },
+            { logo: '/docker-logo.svg', name: 'Docker' },
+          ]}
+        />
 
       </StyledProjectsSection>
 

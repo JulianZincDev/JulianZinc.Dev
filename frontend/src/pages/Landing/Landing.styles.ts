@@ -38,8 +38,8 @@ export const StyledBannerP = styled.p`
 `;
 
 export const StyledProjectsSection = styled.div`
-  width: 90%;
-  max-width: 1000px;
+  width: 98%;
+  max-width: 1020px;
   display: flex;
   flex-direction: column;
   align-items: center;
