@@ -1,3 +1,4 @@
+import { Button } from "@/components/Button/Button";
 import styled from "styled-components";
 
 
@@ -25,9 +26,12 @@ export const StyledTechStackContainer = styled.div`
   display: flex;
   gap: 4px;
   align-items: center;
-  height: 40px;
+  justify-content: center;
+  min-height: 36px;
+  flex-wrap: wrap;
   box-sizing: border-box;
   padding: 0 4px 0 4px;
+  margin: 2px 0 2px 0;
 `;
 
 export const StyledPreviewVideo = styled.video`
@@ -72,4 +76,19 @@ export const StyledFeatureList = styled.ul`
 
 export const StyledFeatureListItem = styled.li`
   font-size: 0.85em;
+`;
+
+export const StyledLinksContainer = styled.div`
+  
+`;
+
+export const StyledLinkButton = styled(Button)`
+  font-weight: normal;
+  padding: 5px;
+  position: relative;
+  transition: transform 100ms ease;
+
+  &:hover {
+    transform: translate(2px, -2px);
+  }
 `;

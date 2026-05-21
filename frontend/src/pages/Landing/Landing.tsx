@@ -49,10 +49,44 @@ export const Landing = () => {
             'Robust role-based administrative controls',
             'Extensible table architecture',
           ]}
+          linkList={[
+            { label: 'Interactive Demo', url: 'https://teamup-demo.julianzinc.dev' }
+          ]}
           techStackList={[
             { logo: '/react-logo.webp', name: 'React' },
             { logo: '/typescript-logo.svg', name: 'TypeScript' },
             { logo: '/nodejs-logo.svg', name: 'Node.js' },
+            { logo: '/postgresql-logo.png', name: 'PostgreSQL' },
+            { logo: '/docker-logo.svg', name: 'Docker' },
+          ]}
+        />
+
+        <ProjectCard
+          src="/pokemon_tcg_simulator_silent_demo.mkv"
+          title={
+          <>
+            <span style={{ color: '#ffd008', textShadow: '1px 1px 0 #2969af, -1px 1px 0 #2969af, -1px -1px 0 #2969af, 1px -1px 0 #2969af' }}>Pokémon</span>
+            <span> TCG Platform</span>
+          </>}
+
+          subheading="Personal Project"
+          description="A platform for Pokemon TCG players to create and edit decks, along with a realtime pre-game lobby system"
+          featureList={[
+            'Advanced drag-and-drop deck editor',
+            'Persistent deck management',
+            'Complex Search query UI with dynamic filter constraints',
+            'Realtime multiplayer lobby system',
+          ]}
+          linkList={[
+            { label: 'Interactive Demo', url: 'https://tcg-battle-sim.julianzinc.dev' }
+          ]}
+          techStackList={[
+            { logo: '/react-logo.webp', name: 'React' },
+            { logo: '/typescript-logo.svg', name: 'TypeScript' },
+            { logo: '/nodejs-logo.svg', name: 'Node.js' },
+            { logo: '/graphql-logo.svg', name: 'GraphQL' },
+            { logo: '/prisma-logo.svg', name: 'Prisma' },
+            { logo: '/socket-io-logo.svg', name: 'Socket.IO' },
             { logo: '/postgresql-logo.png', name: 'PostgreSQL' },
             { logo: '/docker-logo.svg', name: 'Docker' },
           ]}

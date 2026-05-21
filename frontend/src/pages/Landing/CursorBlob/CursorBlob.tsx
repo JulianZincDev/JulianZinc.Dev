@@ -203,7 +203,7 @@ export const CursorBlob = () => {
       width={size}
       height={size}
       viewBox="-120 -120 240 240"
-      style={{ overflow: 'visible', zIndex: '1' }}
+      style={{ overflow: 'visible', maxHeight: '400px', zIndex: '1' }}
     >
       <g ref={scrollOffsetGroupRef} >
         <path

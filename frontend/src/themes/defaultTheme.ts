@@ -47,7 +47,15 @@ export const defaultTheme = {
         backgroundDark: 'darkgrey',
         borderLight: 'gray',
         borderDark: 'transparent',
-      }
+      },
+      [ButtonVariant.LinkButton]: {
+        textLight: 'white',
+        textDark: 'white',
+        backgroundLight: '#7ca8e2',
+        backgroundDark: '#1e73e2',
+        borderLight: 'black',
+        borderDark: 'black',
+      },
     }
   }
 };

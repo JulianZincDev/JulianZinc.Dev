@@ -1,7 +1,10 @@
-import { useEffect, useRef, type FC, type ReactNode } from "react"
-import { StyledDescription, StyledFeatureList, StyledFeatureListItem, StyledMainProjectCardContent, StyledPreviewVideo, StyledProjectCardContainer, StyledProjectOverviewContainer, StyledProjectTitle, StyledSubheading, StyledTechStackContainer } from "./ProjectCard.styles"
+import React, { useCallback, useEffect, useRef, type FC, type ReactNode } from "react"
+import { StyledDescription, StyledFeatureList, StyledFeatureListItem, StyledLinkButton, StyledLinksContainer, StyledMainProjectCardContent, StyledPreviewVideo, StyledProjectCardContainer, StyledProjectOverviewContainer, StyledProjectTitle, StyledSubheading, StyledTechStackContainer } from "./ProjectCard.styles"
 import type { TechElement } from "@/types/TechElement";
 import { TechStackElement } from "./TechStackElement/TechStackElement";
+import { FiExternalLink } from "react-icons/fi";
+import { ButtonVariant } from "@/components/Button/Button.types";
+import type { ClickEvent } from "@/types";
 
 interface ProjectCardProps {
   src?: string;
@@ -10,9 +13,10 @@ interface ProjectCardProps {
   description?: string;
   featureList?: string[];
   techStackList?: TechElement[];
+  linkList?: { url: string, label: string }[];
 };
 
-export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, description, featureList, techStackList }) => {
+export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, description, featureList, techStackList, linkList }) => {
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -23,13 +27,13 @@ export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, desc
 
     const observer = new IntersectionObserver(
       (([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.intersectionRatio >= 0.75) {
           video.play();
         } else {
           video.pause();
         }
       }),
-      { threshold: [0.25, 0.75] }
+      { threshold: [0, 0.25, 0.5, 0.75, 1] }
     );
 
     observer.observe(video);
@@ -40,6 +44,10 @@ export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, desc
 
   }, []);
 
+  const handleClickLink = useCallback((url: string) => (e: ClickEvent) => {
+    e.preventDefault();
+    window.open(url, "_blank", "noopener,noreferrer");
+  }, []);
 
   return (
     <StyledProjectCardContainer>
@@ -64,6 +72,13 @@ export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, desc
               </StyledFeatureListItem>
             )}
           </StyledFeatureList>
+          
+          <StyledLinksContainer>
+            {linkList?.map((link) =>
+              <StyledLinkButton onClick={handleClickLink(link.url)} variant={ButtonVariant.LinkButton} label={<>{link.label}<FiExternalLink /></>} />
+            )}
+          </StyledLinksContainer>
+
         </StyledProjectOverviewContainer>
       </StyledMainProjectCardContent>
       <StyledTechStackContainer>

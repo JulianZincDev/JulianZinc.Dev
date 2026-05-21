@@ -44,7 +44,7 @@ export const StyledProjectsSection = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto 0 auto;
-  gap: 20px;
+  gap: 50px;
 `;
 
 export const StyledSectionHeader = styled.h1`
