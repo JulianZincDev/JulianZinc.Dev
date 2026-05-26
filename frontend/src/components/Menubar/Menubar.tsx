@@ -30,7 +30,7 @@ export const MenuBar = () => {
           <StyledLogo>JulianZinc.Dev</StyledLogo>
         </StyledSideZone>
         <StyledMenubarButton label={'Home'} variant={ButtonVariant.MenuButton} />
-        <StyledMenubarButton label={'Projects'} variant={ButtonVariant.MenuButton} />
+        <StyledMenubarButton href="#projects-section" label={'Projects'} variant={ButtonVariant.MenuButton} />
         <StyledMenubarButton label={'Contact'} variant={ButtonVariant.MenuButton} />
         <StyledSideZone />
       </StyledMenubarContainer>

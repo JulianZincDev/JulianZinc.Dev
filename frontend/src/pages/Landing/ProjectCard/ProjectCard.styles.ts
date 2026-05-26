@@ -1,5 +1,4 @@
 import { AButton } from "@/components/AButton/AButton";
-import { Button } from "@/components/Button/Button";
 import styled from "styled-components";
 
 
@@ -89,7 +88,7 @@ export const StyledLinkButton = styled(AButton)`
   padding: 5px;
   position: relative;
   transition: transform 100ms ease, background-color 400ms ease;
-
+  
   &:hover {
     transform: translate(2px, -2px);
   }

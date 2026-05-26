@@ -30,7 +30,7 @@ export const AButton = forwardRef<HTMLAnchorElement, ButtonProps>(({ label, onCl
 
   return (
     <StyledAButton ref={ref} onClick={handleClick} $variant={isDisabled ? ButtonVariant.Disabled : variant} $disabled={isDisabled} {...props}>
-     {icon && <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>{icon}</div>}
+      {icon && <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>{icon}</div>}
       {currentTimer || label}
       {children}
     </StyledAButton>

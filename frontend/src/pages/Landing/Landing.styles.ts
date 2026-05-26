@@ -23,6 +23,7 @@ export const StyledBlobContainer = styled.div`
   min-height: 300px;
   display: flex;
   margin-top: 42px;
+  justify-content: center;
 `;
 
 export const StyledBannerH1 = styled.h1`
@@ -37,7 +38,7 @@ export const StyledBannerP = styled.p`
   font-size: clamp(0.75em, 4cqi, 1em);
 `;
 
-export const StyledProjectsSection = styled.div`
+export const StyledSection = styled.div`
   width: 98%;
   max-width: 1020px;
   display: flex;

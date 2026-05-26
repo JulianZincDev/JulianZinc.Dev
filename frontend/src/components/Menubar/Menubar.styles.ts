@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { Button } from "../Button/Button";
+import { AButton } from "../AButton/AButton";
 
 interface StyledMenubarContainerProps {
   $isScrolled?: boolean;
@@ -56,13 +56,16 @@ export const StyledMenubarBehindArea = styled.div`
 `;
 
 
-export const StyledMenubarButton = styled(Button)`
+export const StyledMenubarButton = styled(AButton)`
   height: 32px;
   /* width: 120px; */
   padding: 0 5px 0 5px;
   flex-shrink: 1;
   transition: background-color 600ms ease, border-color 600ms ease;
 
+  &:hover {
+    text-decoration: none;
+  }
   @media (max-width: 675px) {
     display: none;
   }

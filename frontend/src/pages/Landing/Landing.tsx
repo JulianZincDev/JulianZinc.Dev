@@ -1,7 +1,7 @@
 import { Background } from "@/components/Background/Background"
 import { MenuBar } from "@/components/Menubar/Menubar"
 import { useTheme } from "styled-components"
-import { StyledBannerContainer, StyledBannerH1, StyledBannerH2, StyledBannerIntroSection, StyledBannerP, StyledBlobContainer, StyledProjectsSection, StyledSectionHeader } from "./Landing.styles";
+import { StyledBannerContainer, StyledBannerH1, StyledBannerH2, StyledBannerIntroSection, StyledBannerP, StyledBlobContainer, StyledSection, StyledSectionHeader } from "./Landing.styles";
 import { CursorBlob } from "./CursorBlob/CursorBlob";
 import { ProjectCard } from "./ProjectCard/ProjectCard";
 
@@ -29,8 +29,8 @@ export const Landing = () => {
       </svg>
 
       
-      <StyledProjectsSection>
-        <StyledSectionHeader>Projects</StyledSectionHeader>
+      <StyledSection>
+        <StyledSectionHeader id="projects-section" >Projects</StyledSectionHeader>
         <ProjectCard
           src="/teamup_silent_demo.mp4"
           title={
@@ -92,7 +92,7 @@ export const Landing = () => {
           ]}
         />
 
-      </StyledProjectsSection>
+      </StyledSection>
 
 
 

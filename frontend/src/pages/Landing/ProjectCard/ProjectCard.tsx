@@ -60,16 +60,17 @@ export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, desc
           <StyledSubheading>{subheading}</StyledSubheading>
           <StyledDescription>{description}</StyledDescription>
           <StyledFeatureList>
-            {featureList?.map((feature) =>
-              <StyledFeatureListItem>
+            {featureList?.map((feature, index) =>
+              <StyledFeatureListItem key={`feature-${index}`}>
                 {feature}
               </StyledFeatureListItem>
             )}
           </StyledFeatureList>
           
           <StyledLinksContainer>
-            {linkList?.map((link) =>
+            {linkList?.map((link, index) =>
               <StyledLinkButton
+                key={`link-${index}`}
                 variant={ButtonVariant.LinkButton}
                 label={<>{link.label}<FiExternalLink /></>}
                 href={link.url}
@@ -82,8 +83,9 @@ export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, desc
         </StyledProjectOverviewContainer>
       </StyledMainProjectCardContent>
       <StyledTechStackContainer>
-        {techStackList?.map((techElement) =>
+        {techStackList?.map((techElement, index) =>
         <TechStackElement
+          key={`tech-${index}`}
           techElement={techElement}
           href={techElement.url}
           target="_blank"
