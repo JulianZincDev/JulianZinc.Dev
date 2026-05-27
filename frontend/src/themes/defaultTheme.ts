@@ -64,6 +64,14 @@ export const defaultTheme = {
         borderLight: 'black',
         borderDark: 'black',
       },
+      [ButtonVariant.ContactLink]: {
+        textLight: 'black',
+        textDark: 'black',
+        backgroundLight: 'transparent',
+        backgroundDark: 'transparent',
+        borderLight: 'black',
+        borderDark: 'transparent',
+      },
     }
   }
 };

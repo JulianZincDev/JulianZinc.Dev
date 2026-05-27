@@ -6,6 +6,7 @@ import { CursorBlob } from "./CursorBlob/CursorBlob";
 import { ProjectCard } from "./ProjectCard/ProjectCard";
 import { useRef, type RefObject } from "react";
 import type { Section } from "./Landing.shared";
+import { ContactCard } from "./ContactCard/ContactCard";
 
 
 export const Landing = () => {
@@ -69,11 +70,11 @@ export const Landing = () => {
             { label: 'Interactive Demo', url: 'https://teamup-demo.julianzinc.dev' }
           ]}
           techStackList={[
-            { logo: '/react-logo.webp', name: 'React', url: 'https://react.dev/' },
-            { logo: '/typescript-logo.svg', name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
-            { logo: '/nodejs-logo.svg', name: 'Node.js', url: 'https://nodejs.org/en' },
-            { logo: '/postgresql-logo.png', name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
-            { logo: '/docker-logo.svg', name: 'Docker', url: 'https://www.docker.com/' },
+            { logo: '/react-logo.webp', label: 'React', url: 'https://react.dev/' },
+            { logo: '/typescript-logo.svg', label: 'TypeScript', url: 'https://www.typescriptlang.org/' },
+            { logo: '/nodejs-logo.svg', label: 'Node.js', url: 'https://nodejs.org/en' },
+            { logo: '/postgresql-logo.png', label: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+            { logo: '/docker-logo.svg', label: 'Docker', url: 'https://www.docker.com/' },
           ]}
         />
 
@@ -97,21 +98,29 @@ export const Landing = () => {
             { label: 'Interactive Demo', url: 'https://tcg-battle-sim.julianzinc.dev' }
           ]}
           techStackList={[
-            { logo: '/react-logo.webp', name: 'React', url: 'https://react.dev/' },
-            { logo: '/typescript-logo.svg', name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
-            { logo: '/nodejs-logo.svg', name: 'Node.js', url: 'https://nodejs.org/en' },
-            { logo: '/graphql-logo.svg', name: 'GraphQL', url: 'https://graphql.org/' },
-            { logo: '/prisma-logo.svg', name: 'Prisma', url: 'https://www.prisma.io/' },
-            { logo: '/socket-io-logo.svg', name: 'Socket.IO', url: 'https://socket.io/' },
-            { logo: '/postgresql-logo.png', name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
-            { logo: '/docker-logo.svg', name: 'Docker', url: 'https://www.docker.com/' },
+            { logo: '/react-logo.webp', label: 'React', url: 'https://react.dev/' },
+            { logo: '/typescript-logo.svg', label: 'TypeScript', url: 'https://www.typescriptlang.org/' },
+            { logo: '/nodejs-logo.svg', label: 'Node.js', url: 'https://nodejs.org/en' },
+            { logo: '/graphql-logo.svg', label: 'GraphQL', url: 'https://graphql.org/' },
+            { logo: '/prisma-logo.svg', label: 'Prisma', url: 'https://www.prisma.io/' },
+            { logo: '/socket-io-logo.svg', label: 'Socket.IO', url: 'https://socket.io/' },
+            { logo: '/postgresql-logo.png', label: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+            { logo: '/docker-logo.svg', label: 'Docker', url: 'https://www.docker.com/' },
           ]}
         />
 
       </StyledSection>
 
+      <StyledSection ref={contactRef} style={{ marginTop: '20px', paddingBottom: '20px' }}>
+        <ContactCard contactList={[
+          { logo: '/linkedin-logo.png', label: 'LinkedIn', url: 'https://www.linkedin.com/in/julian-zincone/' },
+          { logo: '/email-logo.png', label: 'Email', url: 'mailto:j.zincone@unswalumni.com' },
+          { logo: '/github-logo.svg', label: 'GitHub', url: 'https://github.com/JulianZincDev/' },
+        ]} />
+      </StyledSection>
 
-      <div style={{ width: '100%', height: '100%' }} />
+
+      {/* <div style={{ width: '100%', height: '100%' }} /> */}
     </Background>
   )
 }

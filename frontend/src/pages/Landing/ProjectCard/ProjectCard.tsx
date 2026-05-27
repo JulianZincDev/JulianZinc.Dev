@@ -1,7 +1,7 @@
 import { useEffect, useRef, type FC, type ReactNode } from "react"
 import { linkButtonHoverCss, StyledDescription, StyledFeatureList, StyledFeatureListItem, StyledLinkButton, StyledLinksContainer, StyledMainProjectCardContent, StyledPreviewVideo, StyledProjectCardContainer, StyledProjectOverviewContainer, StyledProjectTitle, StyledSubheading, StyledTechStackContainer } from "./ProjectCard.styles"
-import type { TechElement } from "@/types/TechElement";
-import { TechStackElement } from "./TechStackElement/TechStackElement";
+import type { LinkItem } from "@/types/LinkItem";
+import { LinkItemElement } from "./LinkItemElement/LinkItemElement";
 import { FiExternalLink } from "react-icons/fi";
 import { ButtonVariant } from "@/components/Button/Button.types";
 
@@ -11,7 +11,7 @@ interface ProjectCardProps {
   subheading?: string;
   description?: string;
   featureList?: string[];
-  techStackList?: TechElement[];
+  techStackList?: LinkItem[];
   linkList?: { url: string, label: string }[];
 };
 
@@ -85,13 +85,11 @@ export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, desc
       </StyledMainProjectCardContent>
       <StyledTechStackContainer>
         {techStackList?.map((techElement, index) =>
-        <TechStackElement
-          key={`tech-${index}`}
-          techElement={techElement}
-          href={techElement.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        />)}
+          <LinkItemElement
+            key={`tech-${index}`}
+            linkItem={techElement}
+          />
+        )}
       </StyledTechStackContainer>
     </StyledProjectCardContainer>
   )

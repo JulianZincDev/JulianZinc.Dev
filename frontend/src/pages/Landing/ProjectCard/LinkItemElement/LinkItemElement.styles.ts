@@ -2,7 +2,7 @@ import { AButton } from "@/components/AButton/AButton";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-export const StyledTechElementButton = styled(AButton)`
+export const StyledLinkItemButton = styled(AButton)`
   display: flex;
   gap: 5px;
   justify-content: center;
@@ -18,18 +18,23 @@ export const StyledTechElementButton = styled(AButton)`
 `;
 
 export const techElementHoverCss = css`
-  &:hover ${StyledTechElementButton} {
+  &:hover ${StyledLinkItemButton} {
     transform: translate(1px, -1px);
   }
 `;
 
 
-export const StyledTechLogoContainer = styled.div`
+export const StyledLogoContainer = styled.div`
   width: 25px;
   height: 25px;
 `;
 
-export const StyledTechLogoImg = styled.img`
+export const StyledLogoImg = styled.img`
   width: 100%;
   height: 100%;
+`;
+
+export const StyledLabelSpan = styled.span`
+  display: inline-flex;
+  gap: 5px;
 `;
