@@ -5,9 +5,9 @@ import {
   Route,
 } from "react-router-dom";
 import { Landing } from '@/pages/Landing/Landing';
-import { ThemeProvider } from 'styled-components';
 import { useMemo, useState } from 'react';
 import { defaultTheme } from './themes/defaultTheme';
+import { ThemeProvider } from '@emotion/react';
 
 const themeMap = {
   default: defaultTheme,

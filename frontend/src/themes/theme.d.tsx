@@ -1,4 +1,4 @@
-import "styled-components";
+import "@emotion/react";
 import { type DefaultThemeType } from "./defaultTheme";
 
 /**
@@ -6,11 +6,11 @@ import { type DefaultThemeType } from "./defaultTheme";
  * standardization of colors, fonts, background styles, and layout properties for
  * different UI elements.
  *
- * @module styled-components
+ * @module emotion/react
  */
 
 
-declare module "styled-components" {
+declare module "@emotion/react" {
   // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-  export interface DefaultTheme extends DefaultThemeType {}
+  export interface Theme extends DefaultThemeType {}
 }

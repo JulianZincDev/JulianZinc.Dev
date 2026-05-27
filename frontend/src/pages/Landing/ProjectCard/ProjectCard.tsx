@@ -1,5 +1,5 @@
 import { useEffect, useRef, type FC, type ReactNode } from "react"
-import { StyledDescription, StyledFeatureList, StyledFeatureListItem, StyledLinkButton, StyledLinksContainer, StyledMainProjectCardContent, StyledPreviewVideo, StyledProjectCardContainer, StyledProjectOverviewContainer, StyledProjectTitle, StyledSubheading, StyledTechStackContainer } from "./ProjectCard.styles"
+import { linkButtonHoverCss, StyledDescription, StyledFeatureList, StyledFeatureListItem, StyledLinkButton, StyledLinksContainer, StyledMainProjectCardContent, StyledPreviewVideo, StyledProjectCardContainer, StyledProjectOverviewContainer, StyledProjectTitle, StyledSubheading, StyledTechStackContainer } from "./ProjectCard.styles"
 import type { TechElement } from "@/types/TechElement";
 import { TechStackElement } from "./TechStackElement/TechStackElement";
 import { FiExternalLink } from "react-icons/fi";
@@ -70,6 +70,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ src, title, subheading, desc
           <StyledLinksContainer>
             {linkList?.map((link, index) =>
               <StyledLinkButton
+                buttonContainerCss={linkButtonHoverCss}
                 key={`link-${index}`}
                 variant={ButtonVariant.LinkButton}
                 label={<>{link.label}<FiExternalLink /></>}

@@ -1,5 +1,6 @@
-import styled, { css } from "styled-components";
-import { AButton } from "../AButton/AButton";
+import styled from "@emotion/styled";
+import { Button } from "../Button/Button";
+import { css } from "@emotion/react";
 
 interface StyledMenubarContainerProps {
   $isScrolled?: boolean;
@@ -56,7 +57,7 @@ export const StyledMenubarBehindArea = styled.div`
 `;
 
 
-export const StyledMenubarButton = styled(AButton)`
+export const StyledMenubarButton = styled(Button)`
   height: 32px;
   /* width: 120px; */
   padding: 0 5px 0 5px;

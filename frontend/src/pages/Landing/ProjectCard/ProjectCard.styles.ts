@@ -1,5 +1,6 @@
 import { AButton } from "@/components/AButton/AButton";
-import styled from "styled-components";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 
 export const StyledProjectCardContainer = styled.div`
@@ -88,8 +89,14 @@ export const StyledLinkButton = styled(AButton)`
   padding: 5px;
   position: relative;
   transition: transform 100ms ease, background-color 400ms ease;
-  
-  &:hover {
+`;
+
+export const linkButtonHoverCss = css`
+  /* Applying this style to the outer button container
+     to make the inner span translate while keeping the same
+     hoverable area
+  */
+  &:hover ${StyledLinkButton} {
     transform: translate(2px, -2px);
   }
 `;

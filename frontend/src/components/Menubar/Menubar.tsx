@@ -1,8 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, type FC } from "react";
 import { ButtonVariant } from "../Button/Button.types";
 import { StyledLogo, StyledMenubarBehindArea, StyledMenubarButton, StyledMenubarContainer, StyledSideZone } from "./Menubar.styles";
+import type { Section } from "@/pages/Landing/Landing.shared";
 
-export const MenuBar = () => {
+interface MenuBarProps {
+  scrollToSection: (section: Section) => void;
+};
+
+export const MenuBar: FC<MenuBarProps> = ({ scrollToSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -20,18 +25,20 @@ export const MenuBar = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-
+  const handleClickLogo = () => {
+    window.location.href = "/";
+  };
 
   return (
     <>
       <StyledMenubarBehindArea />
       <StyledMenubarContainer $isScrolled={isScrolled} $isVisible={isVisible}>
         <StyledSideZone>
-          <StyledLogo>JulianZinc.Dev</StyledLogo>
+          <StyledLogo onClick={handleClickLogo}>JulianZinc.Dev</StyledLogo>
         </StyledSideZone>
-        <StyledMenubarButton label={'Home'} variant={ButtonVariant.MenuButton} />
-        <StyledMenubarButton href="#projects-section" label={'Projects'} variant={ButtonVariant.MenuButton} />
-        <StyledMenubarButton label={'Contact'} variant={ButtonVariant.MenuButton} />
+        <StyledMenubarButton onClick={() => scrollToSection('home')} label={'Home'} variant={ButtonVariant.MenuButton} />
+        <StyledMenubarButton onClick={() => scrollToSection('projects')} label={'Projects'} variant={ButtonVariant.MenuButton} />
+        <StyledMenubarButton onClick={() => scrollToSection('contact')} label={'Contact'} variant={ButtonVariant.MenuButton} />
         <StyledSideZone />
       </StyledMenubarContainer>
     </>

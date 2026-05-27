@@ -1,5 +1,6 @@
 import { AButton } from "@/components/AButton/AButton";
-import styled from "styled-components";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 export const StyledTechElementButton = styled(AButton)`
   display: flex;
@@ -14,12 +15,14 @@ export const StyledTechElementButton = styled(AButton)`
   border-radius: 5px;
 
   transition: transform 100ms ease, background-color 400ms ease;
+`;
 
-  &:hover {
+export const techElementHoverCss = css`
+  &:hover ${StyledTechElementButton} {
     transform: translate(1px, -1px);
-    text-decoration: underline;
   }
 `;
+
 
 export const StyledTechLogoContainer = styled.div`
   width: 25px;

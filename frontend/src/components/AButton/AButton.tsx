@@ -1,7 +1,10 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useState, type ReactNode } from "react"
-import { StyledAButton } from "./AButton.styles";
+import { StyledAButton, StyledButtonSpan } from "./AButton.styles";
 import { ButtonVariant } from "../Button/Button.types";
 import type { AnchorAttributes } from "@/types";
+import type { Interpolation } from "@emotion/react";
+import type { Theme } from "@emotion/react";
+
 
 interface ButtonProps extends AnchorAttributes {
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
@@ -10,9 +13,10 @@ interface ButtonProps extends AnchorAttributes {
   disabled?: boolean;
   timer?: number;
   icon?: ReactNode;
+  buttonContainerCss?: Interpolation<Theme>;
 };
 
-export const AButton = forwardRef<HTMLAnchorElement, ButtonProps>(({ label, onClick, children, variant = ButtonVariant.Neutral, disabled = false, timer = 0, icon, ...props }, ref) => {
+export const AButton = forwardRef<HTMLAnchorElement, ButtonProps>(({ label, onClick, children, variant = ButtonVariant.Neutral, disabled = false, timer = 0, icon, buttonContainerCss, style, className, ...props }, ref) => {
   
   const [currentTimer, setCurrentTimer] = useState(0);
   const isDisabled = useMemo(() => disabled || currentTimer > 0, [disabled, currentTimer]);
@@ -29,10 +33,12 @@ export const AButton = forwardRef<HTMLAnchorElement, ButtonProps>(({ label, onCl
   }, [onClick, timer]);
 
   return (
-    <StyledAButton ref={ref} onClick={handleClick} $variant={isDisabled ? ButtonVariant.Disabled : variant} $disabled={isDisabled} {...props}>
-      {icon && <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>{icon}</div>}
-      {currentTimer || label}
-      {children}
+    <StyledAButton ref={ref} onClick={handleClick} css={buttonContainerCss} $disabled={isDisabled} $variant={isDisabled ? ButtonVariant.Disabled : variant} {...props}>
+      <StyledButtonSpan $variant={isDisabled ? ButtonVariant.Disabled : variant} $disabled={isDisabled} className={className} style={style} >
+        {icon && <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>{icon}</div>}
+        {currentTimer || label}
+        {children}
+      </StyledButtonSpan>
     </StyledAButton>
   )
 });

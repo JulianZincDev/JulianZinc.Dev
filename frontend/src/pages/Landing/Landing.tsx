@@ -1,18 +1,34 @@
 import { Background } from "@/components/Background/Background"
 import { MenuBar } from "@/components/Menubar/Menubar"
-import { useTheme } from "styled-components"
+import { useTheme } from "@emotion/react";
 import { StyledBannerContainer, StyledBannerH1, StyledBannerH2, StyledBannerIntroSection, StyledBannerP, StyledBlobContainer, StyledSection, StyledSectionHeader } from "./Landing.styles";
 import { CursorBlob } from "./CursorBlob/CursorBlob";
 import { ProjectCard } from "./ProjectCard/ProjectCard";
+import { useRef, type RefObject } from "react";
+import type { Section } from "./Landing.shared";
 
 
 export const Landing = () => {
   const theme = useTheme();
 
+  const homeRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  const refs: Record<Section, RefObject<HTMLDivElement | null>> = {
+    home: homeRef,
+    projects: projectsRef,
+    contact: contactRef,
+  };
+
+  const scrollToSection = (section: Section) => {
+    refs[section]?.current?.scrollIntoView({ behavior: 'smooth' })
+  };
+
   return (
     <Background>
-      <MenuBar />
-      <StyledBannerContainer>
+      <MenuBar scrollToSection={scrollToSection}  />
+      <StyledBannerContainer ref={homeRef} >
         <StyledBannerIntroSection>
           <StyledBannerH2>Julian Zincone</StyledBannerH2>
           <StyledBannerH1 style={{ marginTop: '5px' }} >Full-Stack Developer</StyledBannerH1>
@@ -29,8 +45,8 @@ export const Landing = () => {
       </svg>
 
       
-      <StyledSection>
-        <StyledSectionHeader id="projects-section" >Projects</StyledSectionHeader>
+      <StyledSection ref={projectsRef}>
+        <StyledSectionHeader>Projects</StyledSectionHeader>
         <ProjectCard
           src="/teamup_silent_demo.mp4"
           title={
@@ -93,7 +109,6 @@ export const Landing = () => {
         />
 
       </StyledSection>
-
 
 
       <div style={{ width: '100%', height: '100%' }} />

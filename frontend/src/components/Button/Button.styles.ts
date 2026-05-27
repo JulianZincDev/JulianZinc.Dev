@@ -1,6 +1,7 @@
-import styled, { css } from "styled-components";
+import styled from "@emotion/styled";
 import { ButtonVariant } from "./Button.types";
 import React from "react";
+import { css } from "@emotion/react";
 
 interface StyledButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   $variant?: ButtonVariant;

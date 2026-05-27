@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Eye } from "./Eye";
-import { useTheme } from "styled-components";
+import { useTheme } from "@emotion/react";
 
 
 export const CursorBlob = () => {
