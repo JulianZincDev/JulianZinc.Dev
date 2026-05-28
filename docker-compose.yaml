@@ -1,0 +1,29 @@
+services:
+  portfolio-backend:
+    image: portfolio-backend-image
+    build: ./backend
+    env_file:
+      - ./backend/.env
+    environment:
+      - NODE_ENV=production
+    networks:
+      - portfolio-network
+  
+  portfolio-frontend:
+    build: ./frontend
+    env_file:
+      - ./frontend/.env
+    expose:
+      - "443"
+    depends_on:
+      - portfolio-backend
+    networks:
+      - portfolio-network
+      - web
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+
+networks:
+  portfolio-network:
+  web:
+    external: true

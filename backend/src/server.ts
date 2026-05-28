@@ -15,7 +15,7 @@ app.use(cors({
 }));
 app.use(express.json());
 
-app.post('/referral_log', async (req: Request, res: Response) => {
+app.post('/api/referral_log', async (req: Request, res: Response) => {
   const { source } = req.body;
   const entry: Entry =  {
     source: source.slice(0, 350),
