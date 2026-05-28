@@ -4,13 +4,22 @@ import { useTheme } from "@emotion/react";
 import { StyledBannerContainer, StyledBannerH1, StyledBannerH2, StyledBannerIntroSection, StyledBannerP, StyledBlobContainer, StyledSection, StyledSectionHeader } from "./Landing.styles";
 import { CursorBlob } from "./CursorBlob/CursorBlob";
 import { ProjectCard } from "./ProjectCard/ProjectCard";
-import { useRef, type RefObject } from "react";
+import { useEffect, useMemo, useRef, type RefObject } from "react";
 import type { Section } from "./Landing.shared";
 import { ContactCard } from "./ContactCard/ContactCard";
+import { useSearchParams } from "react-router-dom";
+import axios from "axios";
 
 
 export const Landing = () => {
   const theme = useTheme();
+  const [searchParams] = useSearchParams();
+  const source = useMemo(() => searchParams.get('source'), [searchParams]);
+  useEffect(() => {
+    if (!source) return;
+    axios.post(`${import.meta.env.VITE_BACKEND_URL}/referral_log`, { source: source.slice(0, 350) });
+    window.history.replaceState(null, '', window.location.pathname);
+  }, [source]);
 
   const homeRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);

@@ -85,7 +85,7 @@ export const Eye: FC<EyeProps> = ({ eyePos, groupRef }) => {
       if (!groupRef.current) return;
       const rect = groupRef.current.getBoundingClientRect();
       const centerX = rect.left + (rect.width / 2);
-      const centerY = rect.top + (rect.width / 2);
+      const centerY = rect.top + (rect.height / 2);
       target.current.x = e.clientX - centerX;
       target.current.y = e.clientY - centerY;
     };
