@@ -44,7 +44,7 @@ export const defaultTheme = {
         textLight: 'black',
         textDark: 'black',
         backgroundLight: 'transparent',
-        backgroundDark: 'darkgrey',
+        backgroundDark: '#d4d4d4',
         borderLight: 'gray',
         borderDark: 'transparent',
       },
@@ -70,6 +70,14 @@ export const defaultTheme = {
         backgroundLight: 'transparent',
         backgroundDark: 'transparent',
         borderLight: 'black',
+        borderDark: 'transparent',
+      },
+      [ButtonVariant.Hamburger]: {
+        textLight: 'black',
+        textDark: 'black',
+        backgroundLight: 'transparent',
+        backgroundDark: '#d4d4d4',
+        borderLight: 'transparent',
         borderDark: 'transparent',
       },
     }

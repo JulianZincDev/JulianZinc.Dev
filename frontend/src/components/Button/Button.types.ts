@@ -6,4 +6,5 @@ export const enum ButtonVariant {
   LinkButton,
   TechElement,
   ContactLink,
+  Hamburger,
 };
