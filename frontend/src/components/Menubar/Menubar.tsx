@@ -77,9 +77,13 @@ export const MenuBar: FC<MenuBarProps> = ({ scrollToSection }) => {
           
         </StyledSideZone>
         <StyledHamburgerDropdown $isHamburgerOpen={isHamburgerOpen} $isScrolled={isScrolled}>
-          <StyledMenubarButton style={{ width: '200px' }} onClick={() => scrollToSection('home')} label={'Home'} variant={ButtonVariant.MenuButton} />
-          <StyledMenubarButton style={{ width: '200px' }} onClick={() => scrollToSection('projects')} label={'Projects'} variant={ButtonVariant.MenuButton} />
-          <StyledMenubarButton style={{ width: '200px' }} onClick={() => scrollToSection('contact')} label={'Contact'} variant={ButtonVariant.MenuButton} />
+        {isHamburgerOpen &&
+          <>
+            <StyledMenubarButton style={{ width: '200px' }} onClick={() => scrollToSection('home')} label={'Home'} variant={ButtonVariant.MenuButton} />
+            <StyledMenubarButton style={{ width: '200px' }} onClick={() => scrollToSection('projects')} label={'Projects'} variant={ButtonVariant.MenuButton} />
+            <StyledMenubarButton style={{ width: '200px' }} onClick={() => scrollToSection('contact')} label={'Contact'} variant={ButtonVariant.MenuButton} />
+          </>
+        }
         </StyledHamburgerDropdown>
       </StyledMenubarContainer>
     </>

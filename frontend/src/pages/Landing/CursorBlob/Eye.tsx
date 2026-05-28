@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, type FC } from "react"
 
 
 
@@ -17,7 +17,12 @@ const getFitOffset = (el: Element) => {
   return { x, y };
 }
 
-export const Eye = ({eyePos}: {eyePos: { x: number, y: number }}) => {
+interface EyeProps {
+  eyePos: { x: number, y: number };
+  groupRef: React.RefObject<SVGGElement | null>;
+}
+
+export const Eye: FC<EyeProps> = ({ eyePos, groupRef }) => {
   const eyeRef = useRef<SVGCircleElement>(null);
   const pupilRef = useRef<SVGCircleElement>(null);
 
@@ -32,7 +37,7 @@ export const Eye = ({eyePos}: {eyePos: { x: number, y: number }}) => {
   const draw = () => {
     if (visibilityRef.current) {
       const fitOffset = getFitOffset(visibilityRef.current);
-      fitTargetOffset.current = { x: Math.min(fitOffset.x, 40), y: Math.min(fitOffset.y, 40) };
+      fitTargetOffset.current = { x: Math.min(fitOffset.x, 41), y: Math.min(fitOffset.y, 41) };
     
     }
 
@@ -77,8 +82,8 @@ export const Eye = ({eyePos}: {eyePos: { x: number, y: number }}) => {
 
   useEffect(() => {
     const handlePointerMove = (e: PointerEvent) => {
-      if (!eyeRef.current?.ownerSVGElement) return;
-      const rect = eyeRef.current.ownerSVGElement.getBoundingClientRect();
+      if (!groupRef.current) return;
+      const rect = groupRef.current.getBoundingClientRect();
       const centerX = rect.left + (rect.width / 2);
       const centerY = rect.top + (rect.width / 2);
       target.current.x = e.clientX - centerX;
